@@ -1,0 +1,6 @@
+{
+  "email": ":nth-child(1) > .w-full",
+  "password": ".mt-4 > .w-full",
+  "submitBtn": ".mt-6 > .flex"
+}
+
