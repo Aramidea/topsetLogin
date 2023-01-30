@@ -13,7 +13,7 @@ it("Verify user is unable to login with invalid credentials", function () {
   cy.get(login.password).type('Password123!')
   cy.get(login.submitBtn).click()
   cy.contains('Invalid login detail')
-  expect('Invalid login detail').to.equal('Invalid login detail')
+  
 
   })
 
@@ -23,10 +23,10 @@ it("Verify user is unable to login with invalid credentials", function () {
     cy.get(login.password).type('Password123!')
     cy.get(login.submitBtn).click()
     cy.contains('BOOK A LESSON')
-    expect('BOOK A LESSON').to.equal('BOOK A LESSON')
+   
   
     })
-    it("Verify right error message ia returned when fields are blank", function () {
+    it("Verify right error message is returned when fields are blank", function () {
 
       cy.get(login.email).type('     ');
       cy.get(login.password).type('    ')
