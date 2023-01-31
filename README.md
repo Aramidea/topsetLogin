@@ -39,6 +39,6 @@ Installation and usage can be done on  VsCode.
   
 
 ## Video with Audio
-The below link is a recorded video with an audio showing how the test runs.
-Also, in the folder named videos, there is a video recording of the test run
+The below link redirects to a recorded video with audio showing how the test runs.
+Also, in the folder named videos, there is a video recording without audio showing the test run.
 [https://monosnap.com/file/xFo6imrdaHTKvSUepbnXU5aOek3n1Z]
