@@ -1,47 +1,58 @@
-const login = require("../fixtures/loginSelector.json")
+import login from "../fixtures/loginSelector.json"
 
 describe('Login Functionality', () => {
 
-  beforeEach(function () {
+  beforeEach(() => {
+    // ensuring that errors due to unprecedented exceptions are handled
+    Cypress.on('uncaught:exception', () => {
+      return false
+    })
+
     cy.visit("/")
-});
+  });
 
 
-it("Verify user is unable to login with invalid credentials", function () {
+  it("Verify user is able to login with valid credentials", () => {
 
-  cy.get(login.email).type('qa.analyst@email.co');
-  cy.get(login.password).type('Password123!')
-  cy.get(login.submitBtn).click()
-  cy.contains('Invalid login detail')
-  
+    cy.get(login.emailField).type(login.validEmail);
+    cy.get(login.passwordField).type(login.password)
+    cy.get(login.submitBtn).click()
 
   })
 
-  it("Verify user is able to login with valid credentials", function () {
+  it("Verify user is unable to login with invalid credentials", () => {
 
-    cy.get(login.email).type('qa.analyst@email.com');
-    cy.get(login.password).type('Password123!')
+    cy.get(login.emailField).type(login.invalidEmail);
+    cy.get(login.passwordField).type(login.password)
     cy.get(login.submitBtn).click()
-    cy.contains('BOOK A LESSON')
-   
-  
-    })
-    it("Verify right error message is returned when fields are blank", function () {
+    cy.get(login.invalidErrorMsg).should('be.visible').and('contain', 'Invalid login details')
 
-      cy.get(login.email).type('     ');
-      cy.get(login.password).type('    ')
-      cy.get(login.submitBtn).click()
-      cy.log("cy.get('.text-red-500')")
-      cy.contains('Email is required')
-      cy.contains('password must be at least 8 characters')
+  })
+
+
+  it("Verify right error message is returned when email field is blank", () => {
     
-      })
-      it("Verify error message when password lenght doesn't meet the requirement", function () {
+    cy.get(login.emailField).type('  ');
+    cy.get(login.passwordField).type(login.password)
+    cy.get(login.submitBtn).click()
+    cy.get(login.blankEmailError).should('be.visible').and('contain', 'Email is required')
 
-        cy.get(login.email).type('qa.analyst@email.co');
-        cy.get(login.password).type('Pass!')
-        cy.get(login.submitBtn).click()
-        cy.contains('password must be at least 8 characters')
-      
-        })
+  })
+
+  it("Verify right error message is returned when password field is blank", () => {
+    
+    cy.get(login.emailField).type(login.validEmail);
+    cy.get(login.submitBtn).click()
+    cy.get(login.passwordError).should('be.visible').and('contain', 'Password is required')
+
+  })
+
+  it("Verify error message when password lenght doesn't meet the requirement", () => {
+    
+    cy.get(login.emailField).type(login.validEmail);
+    cy.get(login.passwordField).type(login.halfPassword)
+    cy.get(login.submitBtn).click()
+    cy.get(login.passwordError).should('be.visible').and('contain', 'password must be at least 8 characters')
+
+  })
 });

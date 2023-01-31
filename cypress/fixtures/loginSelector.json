@@ -1,6 +1,13 @@
 {
-  "email": ":nth-child(1) > .w-full",
-  "password": ".mt-4 > .w-full",
-  "submitBtn": ".mt-6 > .flex"
+  "emailField": "form >div:nth-of-type(1)> input",
+  "passwordField": "form >div:nth-of-type(2)> input",
+  "submitBtn": ".mt-6 > .flex",
+  "invalidEmail":"qa.analyst@email.co",
+  "validEmail":"qa.analyst@email.com",
+  "password":"Password123!",
+  "halfPassword":"Pass!",
+  "invalidErrorMsg":"form >div:nth-of-type(3)>p",
+  "blankEmailError":"form >div:nth-of-type(1)>p",
+  "passwordError":"form >div:nth-of-type(2)>p"
 }
 
