@@ -18,14 +18,3 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-  beforeEach(() => {
-    // ensuring that errors due to unprecedented exceptions are handled
-    Cypress.on('uncaught:exception', () => {
-      return false
-    })
-
-    cy.visit("/")
-  })
-
-  
