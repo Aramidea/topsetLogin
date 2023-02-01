@@ -2,16 +2,6 @@ import login from "../fixtures/loginSelector.json"
 
 describe('Login Functionality', () => {
 
-  beforeEach(() => {
-    // ensuring that errors due to unprecedented exceptions are handled
-    Cypress.on('uncaught:exception', () => {
-      return false
-    })
-
-    cy.visit("/")
-  });
-
-
   it("Verify user is able to login with valid credentials", () => {
 
     cy.get(login.emailField).type(login.validEmail);

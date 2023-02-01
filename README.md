@@ -17,15 +17,14 @@ Install Vs code
 Installation and usage can be done on  VsCode.
 
 ### Using the Vscode Terminal
-* Create a folder on your destop
-* Open the folder in Vscode
+* Create a folder your desktop
+* Open Vs code and navigate to the folder
 * Open terminal
-* Run npm init (to install package.json)
-* Run npm install cypress (to install cypress)
-* Run npx cypress open (to run in browser)
-* Run npx cypress run (to run headless)
-* Select e2e 
-* Select any browser (chrome, edge, Electron)
+* clone the repository using (git clone url)
+* Run npm install (to add depencies to package.json)
+* Run npx cypress open --e2e (to run in browser)
+* Run npx cypress run --e2e (to run in headless mode)
+* Click on the test file in Specs folder to start the test run (Test file: 'login.cy.js')
 
 
 
@@ -40,5 +39,5 @@ Installation and usage can be done on  VsCode.
 
 ## Video with Audio
 The below link redirects to a recorded video with audio showing how the test runs.
-Also, in the folder named videos, there is a video recording without audio showing the test run.
+
 [https://monosnap.com/file/xFo6imrdaHTKvSUepbnXU5aOek3n1Z]
