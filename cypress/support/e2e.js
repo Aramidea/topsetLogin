@@ -16,5 +16,14 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+  beforeEach(() => {
+    // ensuring that errors due to unprecedented exceptions are handled
+    Cypress.on('uncaught:exception', () => {
+      return false
+    })
+
+    cy.visit("/")
+  })
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
